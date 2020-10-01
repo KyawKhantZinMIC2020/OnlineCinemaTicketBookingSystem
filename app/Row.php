@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Row extends Model
 {
      protected $fillable = [
-      'price'
+      'price','row'
     ];
+
+    public function seats()
+    {
+    	return $this->hasMany('App\Seat');
+    }
 }

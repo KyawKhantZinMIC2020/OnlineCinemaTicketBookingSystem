@@ -19,6 +19,8 @@ class CreateShowTimesTable extends Migration
             $table->date("date");
             $table->unsignedBigInteger("movie_id");
             $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
+            $table->unsignedBigInteger("hall_id");
+            $table->foreign('hall_id')->references('id')->on('halls')->onDelete('cascade');
             $table->timestamps();
         });
     }

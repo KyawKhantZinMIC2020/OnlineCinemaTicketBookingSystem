@@ -13,6 +13,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
+    return view('admin.index');
+});
+Route::get('/admin/login',function(){
+	return view('admin.login');
+});
+Route::get('/admin/register',function(){
+	return view('admin.register');
+});
+Route::get('/admin/Forgot',function(){
+	return view('admin.forgot-password');
+});
+*/
+Route::get('laravel', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/','FrontendController@home')->name('homepage');
+Route::get('/hall','FrontendController@hall')->name('hall');
+Route::get('/upcoming','FrontendController@upcoming')->name('upcoming');
+Route::get('/showhall/{id}', 'FrontendController@showHall')->name('showhall');
+Route::get('/moviedetail/{id}', 'FrontendController@moviedetail')->name('movie_detail');
+Route::get('/booking/{id}', 'FrontendController@booking')->name('booking');
+
+Route::resource('movies','MovieController');
+
+//Route::resource('rows','RowController');
+
+Route::resource('halls','HallController');
+
+//Route::resource('seats','SeatController');
+
+Route::resource('showtimes','ShowtimeController');
+// Route::get('/dashboard', function () {
+// 	return view('backend.dashboard');
+// });
+// Route::resource('movies', 'MovieController');

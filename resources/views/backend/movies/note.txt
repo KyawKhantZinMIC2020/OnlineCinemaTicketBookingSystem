@@ -1,0 +1,268 @@
+<!-- <div class="form-group">
+				<label for="review">Show Time:	</label>
+				<span class="font-weight-bold ml-2 text-dark">{{$show->showtime}}</span>
+			</div>	 -->
+
+//show.blade.php
+
+
+<!-- <div class="form-group row">
+					<label for="review">Show Time</label>
+					<select name="show_id" class="form-control">
+						<option>--Select Show Time--</option>
+						@foreach($showtimes as $show_t)
+						<option value="{{$show_t->id}}">{{$show_t->showtime}}</option>
+						@endforeach
+					</select>
+				</div> -->
+
+
+//create.blade.php
+
+
+
+Thurein page
+************
+@extends('frontendtemplate')
+@section('title','Home')
+
+@section('content')
+<div class="row">
+<div class="col-md-8 mb-5">
+<h2>What We Do</h2>
+<hr>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+<a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+</div>
+<div class="col-md-4 mb-5">
+<h2>Contact Us</h2>
+<hr>
+<address>
+<strong>Start Bootstrap</strong>
+<br>3481 Melrose Place
+<br>Beverly Hills, CA 90210
+<br>
+</address>
+<address>
+<abbr title="Phone">P:</abbr>
+(123) 456-7890
+<br>
+<abbr title="Email">E:</abbr>
+<a href="mailto:#">name@example.com</a>
+</address>
+</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	@foreach($showtimes as $showtime)
+		<div class="col-md-4 mb-5">
+		<div class="card h-100">
+		<img class="card-img-top w-100 h-50" src="{{$showtime->movie->photo}}" alt="">
+		<div class="card-body">
+		<h4 class="card-title text-center">{{$showtime->movie->movie_name}}</h4>
+		<!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p> -->
+		</div>
+		<div class="card-footer">
+		<center><a href="#" class="btn btn-outline-secondary rounded-pill">Show Detail</a></center>
+		</div>
+		</div>
+		</div>
+	@endforeach
+</div>  
+@endsection
+
+Thurein Second Page
+*******************
+@extends('frontendtemplate')
+@section('title','Home')
+@section('style')
+<style type="text/css">
+	body{
+		background: black;
+	}
+	#available .hover{
+		transition: .5s;
+	}
+	#available .hover .img{
+		overflow: hidden;
+	}
+	#available img{
+		transition: .5s;
+	}
+	#available .hover:hover .img{
+		width: 320px;
+		height: 200px;
+		overflow: hidden;
+	}
+	#available .hover:hover .img img{
+		transform:scale(1.1);
+	}
+	#carouselExampleIndicators img{
+		width: 160px; 
+		height: 220px;
+	}
+	#carouselExampleIndicators .row .col-2{
+		opacity:.5;
+		transition: .6s ease-in-out;
+	}
+	#carouselExampleIndicators .row .col-2:hover{
+		opacity:1;
+		/*transition: .6 ease-in-out;*/
+	}
+</style>
+@endsection
+@section('content')
+	<div class="container">
+		<h3 class="my-5 text-light">Available Movies</h3>
+		<div class="row my-4" id="available">
+			
+		</div>
+		<h3 class="my-3 text-light">Upcoming Movies</h3>
+<div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel">
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+ -->
+ <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Seats</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      @foreach($halls as $key => $hall)
+      <tr onclick="location.href='{{route('showhall', ['id' => $hall->id])}}'">
+        <th scope="row">{{$key + 1}}</th>
+        <td>{{$hall->name}}</td>
+        <td>{{$hall->address}}</td>
+        <td>{{$hall->quantity}}</td>
+        <td>{{$hall->price}}</td>
+      </tr>
+      @endforeach
+  </tbody>
+</table>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row">
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg">
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://image.tmdb.org/t/p/w185/zA5sgJ60b7zny9hsREOwtd5yG4r.jpg">
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/1_Q4W6eJbUdB7KIGvA8EoY0Q-141x200.jpeg">
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      </div>
+    </div>
+    <div class="carousel-item">
+    	<div class="row">
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      </div>
+    </div>
+    <div class="carousel-item">
+    	<div class="row">
+      	<div class="col-2 ">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      	<div class="col-2">
+      		<div class="img">
+      			<img src="https://channelmyanmar.org/wp-content/uploads/2020/09/magic-kids-136x200.jpg" >
+      		</div>
+      	</div>
+      </div>
+    </div>
+  </div>
+  <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+ --></div>
+</div>
+
+@endsection

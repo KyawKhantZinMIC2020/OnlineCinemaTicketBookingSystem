@@ -15,9 +15,10 @@ class CreateHallsTable extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->string("hall name");
+            $table->string("name");
             $table->string("address");
             $table->integer("quantity");
+            $table->integer("price");
             $table->timestamps();
         });
     }

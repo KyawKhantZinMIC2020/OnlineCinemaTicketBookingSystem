@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,6 +16,7 @@ class CreateRowsTable extends Migration
         Schema::create('rows', function (Blueprint $table) {
             $table->id();
             $table->string("price");
+            $table->string('row');
             $table->timestamps();
         });
     }
